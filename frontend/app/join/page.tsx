@@ -17,6 +17,8 @@ export default function JoinPage() {
 
       <button
         onClick={() => {
+          console.log("Button clicked");
+          console.log("Room id: ", roomId);
           router.push(`/meeting/${roomId}`);
         }}
       >
