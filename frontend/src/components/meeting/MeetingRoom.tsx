@@ -8,6 +8,7 @@ import ControlsBar from "./ControlsBar";
 import ParticipantCount from "./ParticipantCount";
 import MeetingHeader from "./MeetingHeader";
 import VideoGrid from "./VideoGrid";
+import ChatPanel from "./ChatPanel";
 interface MeetingRoomProps {
   token: string;
   serverUrl: string;
@@ -31,6 +32,7 @@ export default function MeetingRoom({
       <ParticipantCount />
       <VideoConference />
       <ControlsBar />
+      <ChatPanel/>
     </LiveKitRoom>
   );
 }
