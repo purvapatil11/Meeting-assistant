@@ -4,6 +4,8 @@ const { AccessToken } = require("livekit-server-sdk");
 const router = express.Router();
 
 router.post("/", async (req, res) => {
+  console.log("Token request received");
+  console.log(req.body);
   try {
     const { roomName, participantName } = req.body;
 
