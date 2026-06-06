@@ -1,6 +1,12 @@
 "use client";
 
 import { useParticipants } from "@livekit/components-react";
+import {
+  Mic,
+  MicOff,
+  Video,
+  VideoOff,
+} from "lucide-react";
 
 export default function ParticipantSidebar() {
   const participants = useParticipants();
@@ -14,10 +20,26 @@ export default function ParticipantSidebar() {
       {participants.map((participant) => (
         <div
           key={participant.identity}
-          className="flex items-center gap-2 mb-2"
+          className="flex items-center justify-between mb-3"
         >
-          <span>🟢Live</span>
-          <span>{participant.identity}</span>
+          <div className="flex items-center gap-2">
+            <span>🟢</span>
+            <span>{participant.identity}</span>
+          </div>
+
+          <div className="flex gap-2">
+            {participant.isMicrophoneEnabled ? (
+              <Mic size={18} />
+            ) : (
+              <MicOff size={18} />
+            )}
+
+            {participant.isCameraEnabled ? (
+              <Video size={18} />
+            ) : (
+              <VideoOff size={18} />
+            )}
+          </div>
         </div>
       ))}
     </div>
