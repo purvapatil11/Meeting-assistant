@@ -7,6 +7,7 @@ import VideoGrid from "./VideoGrid";
 import ParticipantSidebar from "./ParticipantSidebar";
 import ChatPanel from "./ChatPanel";
 import ControlsBar from "./ControlsBar";
+import SidebarTabs from "./SidebarTabs";
 
 interface MeetingRoomProps {
   token: string;
@@ -40,8 +41,7 @@ export default function MeetingRoom({
 
           {/* Right Sidebar */}
           <div className="w-80 border-l flex flex-col">
-            <ParticipantSidebar />
-            <ChatPanel />
+            <SidebarTabs />
           </div>
 
         </div>
