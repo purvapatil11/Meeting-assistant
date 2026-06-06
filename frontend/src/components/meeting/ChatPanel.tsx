@@ -30,7 +30,7 @@ export default function ChatPanel() {
     if (!message.trim()) return;
 
     const encoder = new TextEncoder();
-
+    setMessages((prev) => [...prev, `You: ${message}`]);
     await room.localParticipant.publishData(
       encoder.encode(message),
       {
