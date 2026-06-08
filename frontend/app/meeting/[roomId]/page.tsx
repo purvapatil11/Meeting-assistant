@@ -3,13 +3,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import MeetingRoom from "@/src/components/meeting/MeetingRoom";
-
+import { useSearchParams } from "next/navigation";
 export default function MeetingPage() {
   const params = useParams();
   const roomId = params.roomId as string;
 
   const [token, setToken] = useState("");
+  const searchParams = useSearchParams();
 
+const participantName =
+  searchParams.get("name") || "Guest";
   useEffect(() => {
     const fetchToken = async () => {
       try {
@@ -20,7 +23,7 @@ export default function MeetingPage() {
           },
           body: JSON.stringify({
             roomName: roomId,
-            participantName: `user-${Date.now()}`,
+            participantName,
           }),
         });
 
