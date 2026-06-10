@@ -25,7 +25,7 @@ export default function MeetingRoom({
       connect={true}
       audio={true}
       video={true}
-      className="flex flex-col h-screen bg-[#030303] text-zinc-100 overflow-hidden relative"
+      className="flex flex-col fixed inset-0 z-40 bg-[#030303] text-zinc-100 overflow-hidden"
     >
       {/* Subtle Background Glow Orbs for Ambiance */}
       <div className="glow-orb glow-orb-blue w-[300px] h-[300px] top-[-5%] left-[5%] opacity-5" />

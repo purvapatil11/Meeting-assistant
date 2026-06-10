@@ -42,10 +42,12 @@ export default function SidebarTabs() {
       </div>
 
       {/* Tab Panels */}
-      <div className="flex-1 overflow-hidden relative flex flex-col bg-[#030303]/30">
-        {activeTab === "participants" && <ParticipantSidebar />}
-        {activeTab === "chat" && <ChatPanel />}
-        {activeTab === "transcript" && <TranscriptPanel />}
+      <div className="flex-1 min-h-0 overflow-hidden relative bg-[#030303]/30">
+        <div className="absolute inset-0 flex flex-col">
+          {activeTab === "participants" && <ParticipantSidebar />}
+          {activeTab === "chat" && <ChatPanel />}
+          {activeTab === "transcript" && <TranscriptPanel />}
+        </div>
       </div>
     </div>
   );
