@@ -1,47 +1,54 @@
-// Participants | chat |  transcript
+"use client";
 
-import { useState } from "react";
+import { useLayoutStore } from "./layoutStore";
 import ParticipantSidebar from "./ParticipantSidebar";
 import ChatPanel from "./ChatPanel";
 import TranscriptPanel from "./TranscriptPanel";
+import { Users, MessageSquare, ClipboardList } from "lucide-react";
 
 export default function SidebarTabs() {
-    const [ activeTab, setActiveTab ] = useState("participants");
+  const { activeTab, setActiveTab } = useLayoutStore();
 
-    return(
-        <div className="w-80 border-1 felx felx-col h-full">
+  const tabs = [
+    { id: "participants", name: "People", icon: Users },
+    { id: "chat", name: "Chat", icon: MessageSquare },
+    { id: "transcript", name: "Transcript", icon: ClipboardList },
+  ];
 
-            {/* Tab options */}
-            <div className="flex border-b">
-                <button 
-                className="flex-1 p-2"
-                onClick={() => setActiveTab("participants")}
-                >Participants</button>
-            </div>
-            <div className="flex border-b">
-                <button 
-                className="flex-1 p-2"
-                onClick={() => setActiveTab("chat")}
-                >Chat</button>
-            </div>
-            <div className="flex border-b">
-                <button 
-                className="flex-1 p-2"
-                onClick={() => setActiveTab("transcript")}
-                >Transcript</button>
-            </div>
-
-            <div className="flex-1 overflow-hidden">
-                {activeTab === "participants" && (
-                    <ParticipantSidebar />
-                )}
-                {activeTab === "chat" && (
-                    <ChatPanel/>
-                )}
-                {activeTab === "transcript" && (
-                    <TranscriptPanel />
-                )}
-            </div>
+  return (
+    <div className="flex flex-col h-full overflow-hidden">
+      {/* Sliding Pill Tab bar */}
+      <div className="p-4 border-b border-white/[0.06] bg-black/10">
+        <div className="flex p-1 bg-white/[0.03] border border-white/[0.08] rounded-xl">
+          {tabs.map((tab) => {
+            const Icon = tab.icon;
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex-1 py-2 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                  isActive
+                    ? "bg-white/[0.08] text-white shadow-sm"
+                    : "text-zinc-400 hover:text-zinc-200"
+                }`}
+              >
+                <Icon className="w-3.5 h-3.5" />
+                <span>{tab.name}</span>
+              </button>
+            );
+          })}
         </div>
-    )
+      </div>
+
+      {/* Tab Panels */}
+      <div className="flex-1 min-h-0 overflow-hidden relative bg-[#030303]/30">
+        <div className="absolute inset-0 flex flex-col">
+          {activeTab === "participants" && <ParticipantSidebar />}
+          {activeTab === "chat" && <ChatPanel />}
+          {activeTab === "transcript" && <TranscriptPanel />}
+        </div>
+      </div>
+    </div>
+  );
 }
