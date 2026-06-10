@@ -394,7 +394,7 @@ export default function Home() {
         <div className="flex gap-4">
           <a href="#" className="hover:text-zinc-300 transition-colors">Privacy Policy</a>
           <a href="#" className="hover:text-zinc-300 transition-colors">Terms of Service</a>
-          <a href="#" className="hover:text-zinc-300 transition-colors">GitHub Repository</a>
+          <a href="https://github.com/purvapatil11/Meeting-assistant" className="hover:text-zinc-300 transition-colors">GitHub Repository</a>
         </div>
       </footer>
     </div>
