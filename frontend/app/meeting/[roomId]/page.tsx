@@ -20,7 +20,7 @@ export default function MeetingPage() {
     const fetchToken = async () => {
       try {
         // Try connecting to backend.
-        const response = await fetch("http://localhost:5000/api/token", {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/token`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
