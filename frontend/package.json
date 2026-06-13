@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js",
-    "build": "tsc",
-    "lint": "eslint"
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@livekit/components-react": "^2.9.21",
