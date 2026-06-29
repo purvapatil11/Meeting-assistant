@@ -135,7 +135,5 @@ Open [http://localhost:3000](http://localhost:3000) → click **Join** → enter
 ---
 
 
----
-
-## 📄 License
-Not yet specified — consider adding a `LICENSE` file (e.g. MIT) if this is meant to be open source.
+## Support
+Consider giving a star if you find this repository helpful
